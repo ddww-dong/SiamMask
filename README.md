@@ -215,3 +215,12 @@ bash test_all.sh -s 1 -e 20 -d VOT2018 -g 4
 ## License
 Licensed under an MIT license.
 
+## 项目说明
+
+本项目为复现自 GitHub 项目 [foolwood/SiamMask](https://github.com/foolwood/SiamMask)，
+用于学习和实验目的。
+
+原项目实现了基于 Siamese 网络的目标跟踪与分割算法。复现过程中严格参考作者提供的代码和文档，已成功运行并测试了公开数据集。
+
+本仓库保留原始结构，并在本地环境适配、日志记录等方面进行了少量调整。
+

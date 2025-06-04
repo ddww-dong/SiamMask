@@ -22,7 +22,7 @@ def check_keys(model, pretrained_state_dict):
 
 def remove_prefix(state_dict, prefix):
     ''' Old style model is stored with all names of parameters share common prefix 'module.' '''
-    logger.info('remove prefix \'{}\''.format(prefix))
+    logger.info("remove prefix '{}'".format(prefix))
     f = lambda x: x.split(prefix, 1)[-1] if x.startswith(prefix) else x
     return {f(key): value for key, value in state_dict.items()}
 
@@ -33,7 +33,7 @@ def load_pretrain(model, pretrained_path):
         pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage)
     else:
         device = torch.cuda.current_device()
-        pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage.cuda(device))
+        pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage.cuda(device), weights_only=False)
 
     if "state_dict" in pretrained_dict.keys():
         pretrained_dict = remove_prefix(pretrained_dict['state_dict'], 'module.')
